@@ -16,8 +16,9 @@ Pod::Spec.new do |s|
 
   s.subspec 'precompiled' do |ss|
     ss.source_files        = 'ffmpeg-ios-static-libs/include/**/*.h'
-    ss.public_header_files = 'ffmpeg-ios-static-libs/include/**/*.h'
-    ss.private_header_files = 'ffmpeg-ios-static-libs/include/time.h'
+    ss.public_header_files = 'ffmpeg-ios-static-libs/include/*'
+    ss.private_header_files = 'ffmpeg-ios-static-libs/include/libavutil/time.h'
+    ss.header_mappings_dir = 'ffmpeg-ios-static-libs/include/'
     ss.vendored_libraries  = 'ffmpeg-ios-static-libs/lib/*.a'
     ss.libraries = 'ssl', 'crypto', 'rtmp', 'avcodec', 'avdevice', 'avfilter', 'avformat', 'avutil', 'swresample', 'swscale', 'iconv', 'z', 'bz2'
   end
